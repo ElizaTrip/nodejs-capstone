@@ -1,6 +1,5 @@
 const express = require('express')
 const multer = require('multer')
-const path = require('path')
 const router = express.Router()
 const connectToDatabase = require('../models/db')
 const logger = require('../logger')
@@ -16,7 +15,7 @@ const storage = multer.diskStorage({
   filename: function (req, file, cb) {
     cb(null, file.originalname) // Use the original file name
   }
-});
+})
 
 const upload = multer({ storage: storage })
 
@@ -27,12 +26,12 @@ router.get('/', async (req, res, next) => {
     const db = await connectToDatabase()
     const collection = db.collection('secondChanceItems')
     const secondChanceItems = await collection.find({}).toArray()
-    res.json(secondChanceItems);
+    res.json(secondChanceItems)
   } catch (e) {
     logger.console.error('oops something went wrong', e)
-      next(e);
+    next(e)
   }
-});
+})
 
 // Add a new item
 router.post('/', upload.single('file'), async(req, res,next) => {
