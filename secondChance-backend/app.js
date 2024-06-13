@@ -1,14 +1,14 @@
 /* jshint esversion: 9 */
-require('dotenv').config();
-const express = require('express');
-const cors = require('cors');
-const pinoLogger = require('./logger');
-const secondChanceItemsRoutes = require('./routes/secondChanceItemsRoutes');
-const searchRoutes = require('./routes/searchRoutes');
-const authRoutes = require('./routes/authRoutes');
-const imageRoutes = require('./routes/imageRoutes');
-const connectToDatabase = require('./models/db');
-const { loadData } = require("./util/import-mongo/index")
+require('dotenv').config()
+const express = require('express')
+const cors = require('cors')
+const pinoLogger = require('./logger')
+const secondChanceItemsRoutes = require('./routes/secondChanceItemsRoutes')
+const searchRoutes = require('./routes/searchRoutes')
+const authRoutes = require('./routes/authRoutes')
+const imageRoutes = require('./routes/imageRoutes')
+const connectToDatabase = require('./models/db')
+const { loadData } = require('./util/import-mongo/index')
 
 loadData();
 
